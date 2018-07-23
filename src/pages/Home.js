@@ -14,6 +14,7 @@ import * as actions from '../actions';
 import '../App.css';
 
 import SearchBar from '../components/SearchBar';
+import CardSearchTable from '../components/CardSearchTable';
 
 
 
@@ -27,6 +28,19 @@ class Home extends Component {
     console.log("woooot", this.props)
   }
 
+  renderCardTable() {
+    console.log("this works here", this.props.cards.length)
+    if (this.props.cards.length > 0){
+      return (
+        <CardSearchTable />
+      )
+    } else if (this.props.loading == true){
+      return (
+        <div> LOADING LOADING LOADING</div>
+      )
+    }
+  }
+
   render() {
     return (
       <div>
@@ -36,8 +50,9 @@ class Home extends Component {
             onClick={this.logProps}>
             Click Me
           </Button>
-          
+          {this.renderCardTable()}
 
+          
 
 {/* Loading Widget goes here. */}
 

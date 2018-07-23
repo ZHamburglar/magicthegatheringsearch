@@ -9,6 +9,7 @@
     "halogen": "^0.2.0",
     "history": "^4.7.2",
     "mtgsdk": "^0.3.0",
+    "namor": "^1.0.1",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
@@ -16,6 +17,7 @@
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
     "react-scripts": "1.1.4",
+    "react-table": "^6.8.6",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0"
   },

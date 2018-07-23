@@ -43,6 +43,7 @@ class SearchBar extends Component {
                 onClick={this.handleSubmit}
                 >Send invitation
             </Button>
+            
         </Form>
     </div>
     );
