@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 // import { makeData } from "./Utils";
 import * as actions from '../actions';
 
-import namor from "namor";
 
 // Import React Table
 import ReactTable from "react-table";
