@@ -15,8 +15,8 @@ import '../App.css';
 class SearchBar extends Component {
 
   handleSubmit = () => {
-    const { searchItem } = this.props
-    console.log("this was submitted", this.props, searchItem)
+    const { searchItem, cards, loading, error } = this.props
+    console.log("these are the props", this.props, searchItem)
     this.props.searchSubmit(this.props.searchItem)
   }
 
@@ -50,8 +50,8 @@ class SearchBar extends Component {
 }
 
 const mapStateToProps = ({ searchReducer }) => {
-    const { searchItem } = searchReducer
-    return { searchItem }
+    const { searchItem, cards, loading, error } = searchReducer
+    return { searchItem, cards, loading, error }
 }
 
 export default connect(mapStateToProps, actions)(SearchBar);

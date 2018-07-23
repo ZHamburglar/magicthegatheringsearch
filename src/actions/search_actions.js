@@ -1,6 +1,9 @@
 import {
     SEARCH_CHANGE,
-    SEARCH_SUBMIT
+    SEARCH_SUBMIT,
+    SEARCH_SUCCESS,
+    SEARCH_FAIL,
+    SEARCH_INITIATE
 } from './types';
 const mtg = require('mtgsdk')
 
@@ -14,18 +17,34 @@ export const searchChange = (text) => {
     }
 }
 
-export const searchSubmit = (text) => {
-    console.log("submitting a search for: ", text)
-    mtg.card.where({name: text})
-        .then(results => {
-            console.log(results)
-        })
+export const searchSubmit = (text) => async(dispatch) => {
+
         
-    return (dispatch) => {
-        console.log("now submitting to API")
-        dispatch({ 
-            type: SEARCH_SUBMIT,
-            payload: text
-        })
+    // return (dispatch) => {
+    //     console.log("now submitting to API")
+    //     dispatch({ 
+    //         type: SEARCH_SUBMIT,
+    //         payload: text
+    //     })
+    // }
+
+    try {
+        console.log("submitting a search for: ", text)
+        mtg.card.where({name: text})
+            .then(results => {
+                dispatch({
+                    type: SEARCH_SUCCESS,
+                    payload: results
+                })
+            })
+
+    } catch(e){
+        console.log(e)
+        return (dispatch) => {
+            console.log("now submitting to API")
+            dispatch({ 
+                type: SEARCH_FAIL
+            })
+        }
     }
 }
