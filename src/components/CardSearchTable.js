@@ -60,6 +60,7 @@ class CardSearchTable extends Component {
   render() {
     const { cards } = this.props;
     console.log("these props", this.props, cards)
+    
 
     return (
       <div>
@@ -76,6 +77,14 @@ class CardSearchTable extends Component {
                 {
                   Header: "Rarity",
                   accessor: "rarity"
+                },
+                {
+                    Header: "Status",
+                    Cell: (row) => {
+                        console.log("huh", row.original.imageUrl)
+                      return <div><img height={50} src={row.original.imageUrl}/></div>
+                    },
+                  id: "status"
                 }
               ]
             }
